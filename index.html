@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <script>
+            let givetOrd = false;
+            var count = 0;
+            document.addEventListener("DOMContentLoaded", function(event) { 
+                let ord = ["NTI", "David", "Skola", "Måndag", "Programmering"];
+
+                function generateRandomLetter() {
+                    let alphabet = "abcdefghijklmnopqrstuvwxyz"
+
+                    return alphabet[Math.floor(Math.random() * alphabet.length)]
+                }
+
+                let slumpatOrd = document.getElementById("ord");
+                givetOrd = ord[Math.floor(Math.random() * ord.length)];
+                let längd = givetOrd.length;
+
+                let bokstav1 = generateRandomLetter();
+                let bokstav2 = generateRandomLetter();
+                let bokstav3 = generateRandomLetter();
+                let bokstav4 = generateRandomLetter();
+                let bokstav5 = generateRandomLetter();
+                let bokstav6 = generateRandomLetter();
+                let bokstav7 = generateRandomLetter();
+                let bokstav8 = generateRandomLetter();
+
+                let replacedOrd = givetOrd
+                    .replace(bokstav1, "_")
+                    .replace(bokstav2, "_")
+                    .replace(bokstav3, "_")
+                    .replace(bokstav4, "_")
+                    .replace(bokstav5, "_")
+                    .replace(bokstav6, "_")
+                    .replace(bokstav7, "_")
+                    .replace(bokstav8, "_");
+
+                slumpatOrd.textContent = replacedOrd;
+
+            });
+            
+            function check() {
+                    let gissatOrd = document.querySelector("#txt").value;
+
+                    if(gissatOrd.match(givetOrd)) {
+                        alert("Du vann!");
+                    } else {
+                        let antal = document.getElementById("fel");
+
+                        function increase() {
+                            count += 1;
+                        }
+
+                        increase();
+
+                        antal.textContent = `Antal fel: ${count}`;
+                    }
+                }
+        </script>
+    </head>
+    <body>
+        <p id="ord"></p>
+        <p id="fel"></p>
+        <input type="text" id="txt" placeholder="Gissa ordet!">
+        <input type="button" value="Gissa" onclick="check()">
+    </body>
+</html>
