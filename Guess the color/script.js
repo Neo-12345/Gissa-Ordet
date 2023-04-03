@@ -1,6 +1,6 @@
 let color = false; // Gör så att variablen kan ändras och användas i andra funktioner, måste använda detta annars kommer inte denna variabeln fungera i andra funktioner eller ställen i koden, så den kommer till att skrivas om det rätt värde.
 let count = 0; // Antal fel räknaren, gör så här för att ange räknaren att den skall börja på 0.
-function show_image(src, width, height) { // Bild funktion
+function show_image(src, width, height) { // Bild funktion, använder en funktion för att lätt lägga till argument för att visa upp en bild på hemsidan.
     var img = document.getElementById("image"); // Tar img id, använder detta för att skriva om denna bilden till vilka argument som läggs till.
     img.src = src; // Lägger in bilden, använder detta för att lägga till en bild från en mappen.
     img.width = width; // Lägger till längden på bilden, varför jag använder detta är för att bilderna har olika längd då vill jag skriva om dem till en annan längd.
